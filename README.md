@@ -1,2 +1,2 @@
 # hackerrank
-hackerrank
+hackerrank solution
