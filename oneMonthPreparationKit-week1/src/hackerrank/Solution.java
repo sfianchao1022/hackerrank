@@ -1,7 +1,9 @@
 package hackerrank;
 
+import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class Solution {
 
@@ -9,7 +11,7 @@ public class Solution {
 	// write your code here
 
         // array: reverse array
-        System.out.println(Result.reverseArray(Arrays.asList(1, 2, 5, 6, 8)));
+//        System.out.println(Result.reverseArray(Arrays.asList(1, 2, 5, 6, 8)));
 
         // array: 2D array - hourglassSum
 
@@ -37,13 +39,16 @@ public class Solution {
         // 3. Time Conversion
 //        Result.timeConversion("07:05:45PM");
 
-        // 4.
+        // 4. Sparse Arrays
+//        List<String> strings = Arrays.asList("aba", "baba", "aba", "xzxb");
+//        List<String> queries = Arrays.asList("aba", "xzxb", "ab");
+//        System.out.println(Result.matchingStrings(strings, queries));
 
+        // 5. Lonely Integer
+//        System.out.println(Result.lonelyInteger(Arrays.asList(1, 2, 3, 4, 3, 2, 1)));
 
-
-
-
-
+        // 6. Flipping bits
+//        System.out.println(Result.flippingBits(3));
 
     }
 }

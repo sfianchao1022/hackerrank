@@ -255,6 +255,66 @@ class Result {
         return s;
     }
 
+    /*
+     * Complete the 'matchingStrings' function below.
+     *
+     * The function is expected to return an INTEGER_ARRAY.
+     * The function accepts following parameters:
+     *  1. STRING_ARRAY strings
+     *  2. STRING_ARRAY queries
+     */
+    public static List<Integer> matchingStrings(List<String> strings, List<String> queries) {
+        // Write your code here
+        Map<String, Integer> map = new HashMap<>();
+        List<Integer> list = new ArrayList<>();
+        for (String string : strings) {
+            map.put(string, map.getOrDefault(string, 0) + 1);
+        }
+
+        for (String query : queries) {
+            list.add(map.getOrDefault(query, 0));
+        }
+
+        return list;
+    }
+
+    /*
+     * Complete the 'lonelyinteger' function below.
+     *
+     * The function is expected to return an INTEGER.
+     * The function accepts INTEGER_ARRAY a as parameter.
+     */
+    public static int lonelyInteger(List<Integer> a) {
+        // Write your code here
+        Map<Integer, Integer> map = new HashMap<>();
+        for (Integer i : a) {
+            map.put(i, map.getOrDefault(i, 0) + 1);
+        }
+
+        for (Integer key : map.keySet()) {
+            if (map.get(key) == 1) {
+                return key;
+            }
+        }
+
+        return 0;
+    }
+
+    /*
+     * Complete the 'flippingBits' function below.
+     *
+     * The function is expected to return a LONG_INTEGER.
+     * The function accepts LONG_INTEGER n as parameter.
+     */
+    public static long flippingBits(long n) {
+        // Write your code here
+        return (long) (Math.pow(2, 32) - 1) - n;
+    }
+
+
+
+
+
 
 
 }
