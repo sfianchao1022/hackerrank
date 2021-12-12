@@ -14,6 +14,39 @@ import static java.util.stream.Collectors.toList;
 class Result {
 
     /*
+     * Complete the 'reverseArray' function below.
+     *
+     * The function is expected to return an INTEGER_ARRAY.
+     * The function accepts INTEGER_ARRAY a as parameter.
+     */
+    public static List<Integer> reverseArray(List<Integer> a) {
+        // Write your code here
+        Collections.reverse(a);
+        return a;
+    }
+
+    /*
+     * Complete the 'hourglassSum' function below.
+     *
+     * The function is expected to return an INTEGER.
+     * The function accepts 2D_INTEGER_ARRAY arr as parameter.
+     */
+    public static int hourglassSum(List<List<Integer>> arr) {
+        // Write your code here
+        List<Integer> list = new ArrayList<>();
+        for (int i = 1; i < arr.size() - 1; i++) {
+            for (int j = 1; j < arr.get(i).size() - 1; j++) {
+                int up = arr.get(i - 1).get(j - 1) + arr.get(i - 1).get(j) + arr.get(i - 1).get(j + 1);
+                int mid = arr.get(i).get(j);
+                int down = arr.get(i + 1).get(j - 1) + arr.get(i + 1).get(j) + arr.get(i + 1).get(j + 1);
+                list.add(up + mid + down);
+            }
+        }
+        List<Integer> sortedList = list.stream().sorted().collect(Collectors.toList());
+        return sortedList.get(sortedList.size() - 1);
+    }
+
+    /*
      * Complete the 'repeatedString' function below.
      *
      * The function is expected to return a LONG_INTEGER.
@@ -114,7 +147,6 @@ class Result {
         }
         return num;
     }
-
 
     /*
      * Complete the 'plusMinus' function below.
@@ -222,6 +254,7 @@ class Result {
         System.out.println(s);
         return s;
     }
+
 
 
 }

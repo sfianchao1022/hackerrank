@@ -2,12 +2,16 @@ package hackerrank;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
 public class Solution {
 
     public static void main(String[] args) {
 	// write your code here
+
+        // array: reverse array
+        System.out.println(Result.reverseArray(Arrays.asList(1, 2, 5, 6, 8)));
+
+        // array: 2D array - hourglassSum
 
         // warm up: repeatedString
 //        long result = Result.repeatedString("aba", 10);
@@ -34,6 +38,8 @@ public class Solution {
 //        Result.timeConversion("07:05:45PM");
 
         // 4.
+
+
 
 
 
