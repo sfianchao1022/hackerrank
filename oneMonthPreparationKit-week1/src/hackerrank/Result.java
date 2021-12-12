@@ -311,6 +311,51 @@ class Result {
         return (long) (Math.pow(2, 32) - 1) - n;
     }
 
+    /*
+     * Complete the 'diagonalDifference' function below.
+     *
+     * The function is expected to return an INTEGER.
+     * The function accepts 2D_INTEGER_ARRAY arr as parameter.
+     */
+    public static int diagonalDifference(List<List<Integer>> arr) {
+        // Write your code here
+        int sum1 = 0;
+        int sum2 = 0;
+        for (int i = 0; i < arr.size(); i++) {
+            sum1 += arr.get(i).get(i);
+            sum2 += arr.get(i).get(arr.size() - 1 - i);
+        }
+
+        if (sum1 >= sum2) {
+            return sum1 - sum2;
+        } else {
+            return sum2 - sum1;
+        }
+    }
+
+    /*
+     * Complete the 'countingSort' function below.
+     *
+     * The function is expected to return an INTEGER_ARRAY.
+     * The function accepts INTEGER_ARRAY arr as parameter.
+     */
+    public static List<Integer> countingSort(List<Integer> arr) {
+        // Write your code here
+        List<Integer> result = new ArrayList<>();
+        for (int i = 0; i < 100; i++) {
+            result.add(0);
+        }
+        for (Integer i : arr) {
+            int count = result.get(i) + 1;
+            result.set(i, count);
+        }
+        return result;
+    }
+
+    
+
+
+
 
 
 

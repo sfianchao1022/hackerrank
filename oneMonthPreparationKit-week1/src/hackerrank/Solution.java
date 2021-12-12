@@ -50,5 +50,18 @@ public class Solution {
         // 6. Flipping bits
 //        System.out.println(Result.flippingBits(3));
 
+        // 7. Diagonal Difference
+//        List<List<Integer>> arr = new ArrayList<>();
+//        arr.add(Arrays.asList(1, 2, 3));
+//        arr.add(Arrays.asList(4, 5, 6));
+//        arr.add(Arrays.asList(9, 8, 9));
+//        System.out.println(Result.diagonalDifference(arr));
+
+        // 8. Counting Sort 1
+        System.out.println(Result.countingSort(Arrays.asList(1, 2, 3, 4, 3, 2, 1)));
+
+
+
+
     }
 }
