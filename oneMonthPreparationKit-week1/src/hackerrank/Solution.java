@@ -60,8 +60,10 @@ public class Solution {
         // 8. Counting Sort 1
         System.out.println(Result.countingSort(Arrays.asList(1, 2, 3, 4, 3, 2, 1)));
 
+        // 9. Pangrams
+        System.out.println(Result.pangrams("We promptly judged antique ivory buckles for the next prize"));
 
-
+        // 10.
 
     }
 }

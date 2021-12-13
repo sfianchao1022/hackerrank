@@ -352,13 +352,34 @@ class Result {
         return result;
     }
 
-    
 
+    /*
+     * Complete the 'pangrams' function below.
+     *
+     * The function is expected to return a STRING.
+     * The function accepts STRING s as parameter.
+     */
+    public static String pangrams(String s) {
+        // Write your code here
+        Map<String, Boolean> alphabetMap = new HashMap<>();
+        List<String> alphabet = Arrays.asList("abcdefghijklmnopqrstuvwxyz".split(""));
 
+        alphabet.forEach(a -> {
+            if (!s.toLowerCase().contains(a)) {
+                alphabetMap.put(a, false);
+            } else {
+                alphabetMap.put(a, true);
+            }
+        });
 
-
-
-
+//        alphabetMap.forEach((k, v) -> System.out.println(k + " " + v));
+        for (String key : alphabetMap.keySet()) {
+            if (alphabetMap.get(key) == false) {
+                return "not pangram";
+            }
+        }
+        return "pangram";
+    }
 
 
 
