@@ -1,9 +1,7 @@
 package hackerrank;
 
 import java.sql.SQLOutput;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class Solution {
@@ -71,7 +69,10 @@ public class Solution {
 //        System.out.println(Result.birthday(Arrays.asList(4), 4, 1));
 //        System.out.println(Result.birthday(Arrays.asList(2, 2, 1, 3, 2), 4, 2));
 
-        // 12.
+        // mock test 1: Find the Median
+        System.out.println(Result.findMedian(Arrays.asList(5, 3, 1, 2, 4)));
+
+        // mock test 2:
 
     }
 }
