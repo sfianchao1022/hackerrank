@@ -47,6 +47,22 @@ class Result {
     }
 
     /*
+     * Complete the 'rotLeft' function below.
+     *
+     * The function is expected to return an INTEGER_ARRAY.
+     * The function accepts following parameters:
+     *  1. INTEGER_ARRAY a
+     *  2. INTEGER d
+     */
+    public static List<Integer> rotLeft(List<Integer> a, int d) {
+        // Write your code here
+        a.addAll(a.subList(0, d));
+
+        return a.subList(d, a.size());
+    }
+
+
+    /*
      * Complete the 'repeatedString' function below.
      *
      * The function is expected to return a LONG_INTEGER.

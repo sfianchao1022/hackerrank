@@ -14,6 +14,10 @@ public class Solution {
 
         // array: 2D array - hourglassSum
 
+        // array: Left Rotation
+//        List<Integer> list = new ArrayList<>(Arrays.asList(1, 2, 3, 4, 5));
+//        System.out.println(Result.rotLeft(list, 4));
+
         // warm up: repeatedString
 //        long result = Result.repeatedString("aba", 10);
 //        System.out.println(result);
