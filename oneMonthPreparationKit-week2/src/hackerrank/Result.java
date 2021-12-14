@@ -87,6 +87,37 @@ class Result {
         return ans;
     }
 
+    /*
+     * Complete the 'pageCount' function below.
+     *
+     * The function is expected to return an INTEGER.
+     * The function accepts following parameters:
+     *  1. INTEGER n
+     *  2. INTEGER p
+     */
+    public static int pageCount(int n, int p) {
+        // Write your code here
+        int start = 0;
+        int end = 0;
+
+        int startPage = 1;
+        while (startPage < p) {
+            startPage += 2;
+            start++;
+        }
+
+        startPage = p;
+        if (startPage % 2 == 0) {
+            startPage++;
+        }
+        while (startPage < n) {
+            startPage += 2;
+            end++;
+        }
+        return Math.min(start, end);
+    }
+
+
 
 
 
