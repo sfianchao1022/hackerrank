@@ -4,6 +4,7 @@ import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Solution {
 
@@ -58,12 +59,14 @@ public class Solution {
 //        System.out.println(Result.diagonalDifference(arr));
 
         // 8. Counting Sort 1
-        System.out.println(Result.countingSort(Arrays.asList(1, 2, 3, 4, 3, 2, 1)));
+//        System.out.println(Result.countingSort(Arrays.asList(1, 2, 3, 4, 3, 2, 1)));
 
         // 9. Pangrams
-        System.out.println(Result.pangrams("We promptly judged antique ivory buckles for the next prize"));
+//        System.out.println(Result.pangrams("We promptly judged antique ivory buckles for the next prize"));
 
-        // 10.
+        // 10. Permuting Two Arrays
+        System.out.println(Result.twoArrays(5, Arrays.asList(1, 2, 2, 1), Arrays.asList(3, 3, 3, 4)));
 
+        // 11. 
     }
 }

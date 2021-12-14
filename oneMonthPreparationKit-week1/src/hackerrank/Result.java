@@ -382,5 +382,35 @@ class Result {
     }
 
 
+    /*
+     * Complete the 'twoArrays' function below.
+     *
+     * The function is expected to return a STRING.
+     * The function accepts following parameters:
+     *  1. INTEGER k
+     *  2. INTEGER_ARRAY A
+     *  3. INTEGER_ARRAY B
+     */
+    public static String twoArrays(int k, List<Integer> A, List<Integer> B) {
+        // Write your code here
+        List<Integer> sortedA = A.stream().sorted().toList();
+        List<Integer> sortedB = B.stream().sorted().collect(Collectors.toList());
+        List<Integer> list = new ArrayList<>();
+        for (int i = 0; i < sortedA.size(); i++) {
+            for (Integer b : sortedB) {
+                if (sortedA.get(i) + b >= k) {
+                    list.add(b);
+                    sortedB.remove(b);
+                    break;
+                }
+            }
+        }
+        if (list.size() < B.size()) {
+            return "NO";
+        }
+        return "YES";
+    }
+
+
 
 }
