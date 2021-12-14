@@ -411,6 +411,37 @@ class Result {
         return "YES";
     }
 
-
+    /*
+     * Complete the 'birthday' function below.
+     *
+     * The function is expected to return an INTEGER.
+     * The function accepts following parameters:
+     *  1. INTEGER_ARRAY s
+     *  2. INTEGER d
+     *  3. INTEGER m
+     */
+    public static int birthday(List<Integer> s, int d, int m) {
+        // Write your code here
+        int way = 0;
+        for (int i = 1; i <= s.size(); i++) {
+            int index = i - 1;
+            if (index + m <= s.size()) {
+                List<Integer> list = s.subList(index, index + m);
+                System.out.println(list);
+                int sum = 0;
+                sum = list.stream().reduce(sum, (a, b) -> a + b);
+//                sum = list.stream().reduce(sum, Integer::sum);
+//                sum += list.stream().mapToInt(Integer::intValue).sum();
+//                for (Integer integer : list) {
+//                    sum += integer;
+//                }
+                if (sum == d) {
+                    System.out.println("match: " + list);
+                    way++;
+                }
+            }
+        }
+        return way;
+    }
 
 }

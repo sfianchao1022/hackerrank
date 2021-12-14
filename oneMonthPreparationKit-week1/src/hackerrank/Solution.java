@@ -65,8 +65,13 @@ public class Solution {
 //        System.out.println(Result.pangrams("We promptly judged antique ivory buckles for the next prize"));
 
         // 10. Permuting Two Arrays
-        System.out.println(Result.twoArrays(5, Arrays.asList(1, 2, 2, 1), Arrays.asList(3, 3, 3, 4)));
+//        System.out.println(Result.twoArrays(5, Arrays.asList(1, 2, 2, 1), Arrays.asList(3, 3, 3, 4)));
 
-        // 11. 
+        // 11. Subarray Division 1
+//        System.out.println(Result.birthday(Arrays.asList(4), 4, 1));
+//        System.out.println(Result.birthday(Arrays.asList(2, 2, 1, 3, 2), 4, 2));
+
+        // 12.
+
     }
 }
