@@ -117,8 +117,71 @@ class Result {
         return Math.min(start, end);
     }
 
+    /*
+     * Complete the 'towerBreakers' function below.
+     *
+     * The function is expected to return an INTEGER.
+     * The function accepts following parameters:
+     *  1. INTEGER n
+     *  2. INTEGER m
+     */
+    public static int towerBreakers(int n, int m) {
+        // Write your code here
+        if (m == 1) {
+            return 2;
+        } else if (n % 2 == 1) {
+            return 1;
+        } else {
+            return 2;
+        }
+
+    }
 
 
+    /*
+     * Complete the 'caesarCipher' function below.
+     *
+     * The function is expected to return a STRING.
+     * The function accepts following parameters:
+     *  1. STRING s
+     *  2. INTEGER k
+     */
+    public static String caesarCipher(String s, int k) {
+        // Write your code here
+        k = k % 26;
 
+        List<String> originList = new ArrayList<>(Arrays.asList("abcdefghijklmnopqrstuvwxyz".split("")));
+        originList.addAll(originList.subList(0, k));
+        List<String> rotatedList = originList.subList(k, originList.size());
+        System.out.println(rotatedList);
+
+        Map<String, String> map = new HashMap<>();
+        for (int i = 0; i < rotatedList.size(); i++) {
+            map.put(originList.get(i), rotatedList.get(i));
+        }
+        map.forEach((key, value) -> System.out.println("key: " + key + " value: " + value));
+
+        String ans = "";
+        String c;
+        for (int i = 0; i < s.length(); i++) {
+            c = String.valueOf(s.charAt(i));
+            if (Character.isUpperCase(s.charAt(i))) {
+                ans += map.getOrDefault(c.toLowerCase(), c).toUpperCase();
+            } else {
+                ans += map.getOrDefault(c, c);
+            }
+        }
+        return ans;
+
+//        List<String> list = Arrays.asList(s.split(""));
+//        for (int i = 0; i < list.size(); i++) {
+//            if (Character.isUpperCase(list.get(i).charAt(0))) {
+//                list.set(i, map.getOrDefault(list.get(i).toLowerCase(), list.get(i)).toUpperCase());
+//            } else {
+//                list.set(i, map.getOrDefault(list.get(i), list.get(i)));
+//            }
+//        }
+//        return String.join("", list);
+    }
 
 }

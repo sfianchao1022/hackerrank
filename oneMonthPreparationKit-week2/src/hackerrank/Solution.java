@@ -20,11 +20,13 @@ public class Solution {
 //        System.out.println(Result.sockMerchant(7, Arrays.asList(1, 2, 1, 2, 1, 3, 2)));
 
         // 3. Drawing Book
-        System.out.println(Result.pageCount(6, 2));
+//        System.out.println(Result.pageCount(6, 2));
 
-        //
+        // 4. Tower Breakers
+        System.out.println(Result.towerBreakers(2, 6));
 
-
+        // 5.
+        System.out.println(Result.caesarCipher("www.abc.xy", 87));
 
     }
 }
