@@ -1,6 +1,7 @@
 package hackerrank;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 class Result {
 
@@ -28,6 +29,7 @@ class Result {
 
     /**
      * rover control
+     *
      * @param matrixSize
      * @param cmds
      * @return
@@ -60,6 +62,7 @@ class Result {
 
     /**
      * circular array
+     *
      * @param n
      * @param endNode
      * @return
@@ -71,6 +74,7 @@ class Result {
             map.put(endNode.get(i + 1), map.getOrDefault(endNode.get(i + 1), 0) + 1);
         }
         map.forEach((k, v) -> System.out.println("k: " + k + " v:" + v));
+
         int value = map.get(endNode.get(0));
         int ans = endNode.get(0);
         for (Integer key : map.keySet()) {
@@ -80,6 +84,80 @@ class Result {
             }
         }
         return ans;
+
+//        Optional<Map.Entry<Integer, Integer>> max = map.entrySet().stream().max(Map.Entry.comparingByValue());
+//        return max.get().getKey();
     }
+
+
+    /*
+     * Complete the 'hurdleRace' function below.
+     *
+     * The function is expected to return an INTEGER.
+     * The function accepts following parameters:
+     *  1. INTEGER k
+     *  2. INTEGER_ARRAY height
+     */
+    public static int hurdleRace(int k, List<Integer> height) {
+        // Write your code here
+        List<Integer> list = height.stream().sorted().collect(Collectors.toList());
+        if (list.get(list.size() - 1) < k) {
+            return 0;
+        } else {
+            return list.get(list.size() - 1) - k;
+        }
+    }
+
+
+    /*
+     * Complete the 'getTotalX' function below.
+     *
+     * The function is expected to return an INTEGER.
+     * The function accepts following parameters:
+     *  1. INTEGER_ARRAY a
+     *  2. INTEGER_ARRAY b
+     */
+    public static int getTotalX(List<Integer> a, List<Integer> b) {
+        // Write your code here
+        int aMax = a.get(a.size() - 1);
+        int bMin = b.get(0);
+        Set<Integer> aSet = new HashSet<>();
+        Set<Integer> bSet = new HashSet<>();
+
+        for (int i = aMax; i <= bMin; i++) {
+            for (int j = 0; j < a.size(); j++) {
+                if (i % a.get(j) == 0) {
+                    aSet.add(i);
+                }
+            }
+            for (int k = 0; k < b.size(); k++) {
+                if (b.get(k) % i == 0) {
+                    bSet.add(i);
+                }
+            }
+        }
+
+        for (Integer integer : a) {
+            aSet.removeIf(element -> element % integer != 0);
+        }
+        for (Integer integer : b) {
+            bSet.removeIf(element -> integer % element != 0);
+        }
+        System.out.println(aSet);
+        System.out.println(bSet);
+
+        List<Integer> ans = new ArrayList<>();
+        aSet.forEach(e -> {
+            if (bSet.contains(e)) {
+                ans.add(e);
+            }
+        });
+        return ans.size();
+    }
+
+
+
+
+
 
 }
