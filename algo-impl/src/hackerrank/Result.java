@@ -61,6 +61,42 @@ class Result {
     }
 
     /**
+     * chairs requirement
+     * @param simulations
+     * @return
+     */
+    public static List<Integer> minChairs(List<String> simulations){
+        List<Integer> list = new ArrayList<>();
+        for (int i = 0; i < simulations.size(); i++) {
+            int total = 0;
+            int available = 0;
+            String string = simulations.get(i);
+            for (int j = 0; j < string.length(); j++) {
+                char c = string.charAt(j);
+                if (c == 'C') {
+                    if (available > 0) {
+                        available--;
+                    } else {
+                        total++;
+                    }
+                } else if (c == 'R') {
+                    available++;
+                } else if (c == 'U') {
+                    if (available > 0) {
+                        available--;
+                    } else {
+                        total++;
+                    }
+                } else if (c == 'L') {
+                    available++;
+                }
+            }
+            list.add(total);
+        }
+        return list;
+    }
+
+    /**
      * circular array
      *
      * @param n
