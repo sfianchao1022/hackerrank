@@ -184,4 +184,26 @@ class Result {
 //        return String.join("", list);
     }
 
+    /*
+     * Complete the 'maxMin' function below.
+     *
+     * The function is expected to return an INTEGER.
+     * The function accepts following parameters:
+     *  1. INTEGER k
+     *  2. INTEGER_ARRAY arr
+     */
+    public static int maxMin(int k, List<Integer> arr) {
+        // Write your code here
+        List<Integer> sortedArr = arr.stream().sorted().collect(Collectors.toList());
+
+        int min = sortedArr.get(k - 1) - sortedArr.get(0);
+        for (int i = 0; i < sortedArr.size() - k + 1; i++) {
+            if (sortedArr.get(i + k - 1) - sortedArr.get(i) < min) {
+                min = sortedArr.get(i + k - 1) - sortedArr.get(i);
+            }
+        }
+        return min;
+    }
+
+
 }

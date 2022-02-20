@@ -23,12 +23,17 @@ public class Solution {
 //        System.out.println(Result.pageCount(6, 2));
 
         // 4. Tower Breakers
-        System.out.println(Result.towerBreakers(2, 6));
+//        System.out.println(Result.towerBreakers(2, 6));
 
         // 5.  Caesar Cipher
-        System.out.println(Result.caesarCipher("www.abc.xy", 87));
+//        System.out.println(Result.caesarCipher("www.abc.xy", 87));
+
+        // 6. Max Min
+        System.out.println(Result.maxMin(3, Arrays.asList(100, 200, 300, 350, 400, 401 ,402)));
 
         //
+
+
 
     }
 }
