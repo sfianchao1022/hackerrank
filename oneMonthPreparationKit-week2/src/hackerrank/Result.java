@@ -5,6 +5,36 @@ import java.util.stream.Collectors;
 
 class Result {
 
+    public static Integer numberOfTokens(int expiryLimit, List<List<Integer>> commands) {
+
+        Map<Integer, Integer> commandZeroMap = new HashMap<>();
+        Map<Integer, Integer> commandOneMap = new HashMap<>();
+
+        int max = commands.get(0).get(2);
+        for (List<Integer> temp : commands) {
+            if (temp.get(2) > max) {
+                max = temp.get(2);
+            }
+
+            if (temp.get(0) == 0) {
+                commandZeroMap.put(temp.get(1), expiryLimit + temp.get(2));
+            } else {
+                commandOneMap.put(temp.get(1), temp.get(2));
+            }
+        }
+
+        int ans = 0;
+        for (Integer key : commandOneMap.keySet()) {
+            if (commandZeroMap.containsKey(key)) {
+                if (commandOneMap.get(key) <= commandZeroMap.get(key) && commandOneMap.get(key) + expiryLimit > max) {
+                    ans++;
+                }
+            }
+        }
+
+        return ans;
+    }
+
     /*
      * Complete the 'twoStrings' function below.
      *

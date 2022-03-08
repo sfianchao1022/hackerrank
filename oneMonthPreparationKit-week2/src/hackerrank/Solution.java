@@ -1,14 +1,27 @@
 package hackerrank;
 
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 public class Solution {
 
     public static void main(String[] args) {
 	// write your code here
+
+        // TSMC: Authentication Tokens
+        List<List<Integer>> lists = new ArrayList<>();
+        lists.add(Arrays.asList(0, 1, 1));
+        lists.add(Arrays.asList(0, 2, 2));
+        lists.add(Arrays.asList(1, 1, 5));
+        lists.add(Arrays.asList(1, 2, 7));
+//        List<List<Integer>> lists = new ArrayList<>();
+//        lists.add(Arrays.asList(0, 1, 1));
+//        lists.add(Arrays.asList(1, 1, 5));
+//        List<List<Integer>> lists = new ArrayList<>();
+//        lists.add(Arrays.asList(0, 1, 1));
+//        lists.add(Arrays.asList(1, 1, 4));
+//        lists.add(Arrays.asList(1, 2, 5));
+
+        System.out.println(Result.numberOfTokens(4, lists));
 
         // hashMap: Two Strings
 //        System.out.println(Result.twoStrings("hello", "world"));
@@ -29,9 +42,9 @@ public class Solution {
 //        System.out.println(Result.caesarCipher("www.abc.xy", 87));
 
         // 6. Max Min
-        System.out.println(Result.maxMin(3, Arrays.asList(100, 200, 300, 350, 400, 401 ,402)));
+//        System.out.println(Result.maxMin(3, Arrays.asList(100, 200, 300, 350, 400, 401 ,402)));
 
-        //
+
 
 
 
