@@ -5,6 +5,12 @@ import java.util.stream.Collectors;
 
 class Result {
 
+    /**
+     * TSMC: Authentication Tokens
+     * @param expiryLimit
+     * @param commands
+     * @return
+     */
     public static Integer numberOfTokens(int expiryLimit, List<List<Integer>> commands) {
 
         Map<Integer, Integer> commandZeroMap = new HashMap<>();
@@ -33,6 +39,38 @@ class Result {
         }
 
         return ans;
+    }
+
+    /**
+     * TSMC: Odd One out
+     * @param series
+     * @return
+     */
+    public static String findOdd(List<String> series) {
+
+        ArrayList<String> alphabets = new ArrayList<>(Arrays.asList("ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("")));
+
+        int rightOrder = 0;
+        int leftOrder = 0;
+        for (String string : series) {
+            char last = string.charAt(string.length() - 1);
+            char secondLast = string.charAt(string.length() - 2);
+
+            if (alphabets.indexOf(String.valueOf(last)) == alphabets.indexOf(String.valueOf(secondLast)) + 1) {
+                rightOrder++;
+                if (leftOrder > 1 && rightOrder == 1) {
+                    return string;
+                }
+            } else {
+                leftOrder++;
+                if (rightOrder > 1 && leftOrder == 1) {
+                    return string;
+                }
+            }
+
+        }
+
+        return null;
     }
 
     /*

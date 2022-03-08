@@ -8,11 +8,11 @@ public class Solution {
 	// write your code here
 
         // TSMC: Authentication Tokens
-        List<List<Integer>> lists = new ArrayList<>();
-        lists.add(Arrays.asList(0, 1, 1));
-        lists.add(Arrays.asList(0, 2, 2));
-        lists.add(Arrays.asList(1, 1, 5));
-        lists.add(Arrays.asList(1, 2, 7));
+//        List<List<Integer>> lists = new ArrayList<>();
+//        lists.add(Arrays.asList(0, 1, 1));
+//        lists.add(Arrays.asList(0, 2, 2));
+//        lists.add(Arrays.asList(1, 1, 5));
+//        lists.add(Arrays.asList(1, 2, 7));
 //        List<List<Integer>> lists = new ArrayList<>();
 //        lists.add(Arrays.asList(0, 1, 1));
 //        lists.add(Arrays.asList(1, 1, 5));
@@ -20,8 +20,10 @@ public class Solution {
 //        lists.add(Arrays.asList(0, 1, 1));
 //        lists.add(Arrays.asList(1, 1, 4));
 //        lists.add(Arrays.asList(1, 2, 5));
+//        System.out.println(Result.numberOfTokens(4, lists));
 
-        System.out.println(Result.numberOfTokens(4, lists));
+        // TSMC: Odd One out
+        System.out.println(Result.findOdd(Arrays.asList("ABC", "BCD", "EFG", "DCB")));
 
         // hashMap: Two Strings
 //        System.out.println(Result.twoStrings("hello", "world"));
