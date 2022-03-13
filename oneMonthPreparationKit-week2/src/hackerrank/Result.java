@@ -73,6 +73,43 @@ class Result {
         return null;
     }
 
+    /**
+     * TSMC: Longest Work Slot
+     * @param leaveTimes
+     * @return
+     */
+    public static String findLongestSingleSlot(List<List<Integer>> leaveTimes) {
+
+        List<String> alphabets = Arrays.asList("abcdefghijklmnopqrstuvwxyz".split(""));
+
+        Map<Integer, Integer> map = new HashMap<>();
+        map.put(leaveTimes.get(0).get(0), leaveTimes.get(0).get(1));
+
+        for (int i = 1; i < leaveTimes.size(); i++) {
+            int previous = leaveTimes.get(i - 1).get(1);
+            int present = leaveTimes.get(i).get(1);
+            int presentId = leaveTimes.get(i).get(0);
+
+            if (!map.containsKey(presentId)) {
+                map.put(presentId, present - previous);
+            } else {
+                if (map.get(presentId) < present - previous) {
+                    map.put(presentId, present - previous);
+                }
+            }
+        }
+
+//        Map.Entry<Integer, Integer> maxEntry = map.entrySet().stream().max((e1, e2) -> e1.getValue().compareTo(e2.getValue())).orElse(null);
+//        Map.Entry<Integer, Integer> maxEntry = map.entrySet().stream().max(Comparator.comparingInt(Map.Entry::getValue)).orElse(null);
+//        if (maxEntry != null) {
+//            return alphabets.get(maxEntry.getKey());
+//        }
+//        return null;
+
+        Optional<Map.Entry<Integer, Integer>> maxEntry = map.entrySet().stream().max(Comparator.comparingInt(e -> e.getValue()));
+        return maxEntry.map(e -> alphabets.get(e.getKey())).orElse(null);
+    }
+
     /*
      * Complete the 'twoStrings' function below.
      *
