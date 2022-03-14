@@ -26,12 +26,12 @@ public class Solution {
 //        System.out.println(Result.findOdd(Arrays.asList("ABC", "BCD", "EFG", "DCB")));
 
         // TSMC: Longest Work Slot
-        List<List<Integer>> lists = new ArrayList<>();
-        lists.add(Arrays.asList(0, 3));
-        lists.add(Arrays.asList(2, 5));
-        lists.add(Arrays.asList(0, 9));
-        lists.add(Arrays.asList(1, 15));
-        System.out.println(Result.findLongestSingleSlot(lists));
+//        List<List<Integer>> lists = new ArrayList<>();
+//        lists.add(Arrays.asList(0, 3));
+//        lists.add(Arrays.asList(2, 5));
+//        lists.add(Arrays.asList(0, 9));
+//        lists.add(Arrays.asList(1, 15));
+//        System.out.println(Result.findLongestSingleSlot(lists));
 
         // hashMap: Two Strings
 //        System.out.println(Result.twoStrings("hello", "world"));
@@ -54,8 +54,8 @@ public class Solution {
         // 6. Max Min
 //        System.out.println(Result.maxMin(3, Arrays.asList(100, 200, 300, 350, 400, 401 ,402)));
 
-
-
+        // 7. Sherlock and Array
+        System.out.println(Result.balancedSums(Arrays.asList(1, 2, 3)));
 
     }
 }
