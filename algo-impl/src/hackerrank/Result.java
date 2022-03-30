@@ -191,8 +191,33 @@ class Result {
         return ans.size();
     }
 
+    /**
+     * CyberLink: star rating
+     * @param str
+     * @return
+     */
+    public static String starRating(String str){
 
+        float num = Float.parseFloat(str);
+        int full = 0;
+        int half = 0;
+        int empty = 0;
 
+        while (num >= 1) {
+            num -= 1;
+            full++;
+        }
+
+        if (num > 0) {
+            half++;
+        }
+
+        empty = 5 - full - half;
+
+        String ans = "full ".repeat(full) + "half ".repeat(half) + "empty ".repeat(empty);
+
+        return ans;
+    }
 
 
 

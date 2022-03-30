@@ -14,7 +14,7 @@ public class Solution {
 //        System.out.println(Result.roverMove(4, Arrays.asList("RIGHT", "UP", "DOWN", "LEFT", "DOWN", "DOWN")));
 
         // TSMC: chairs requirement
-        System.out.println(Result.minChairs(Arrays.asList("CCCRRR", "CC", "CCRURC")));
+//        System.out.println(Result.minChairs(Arrays.asList("CCCRRR", "CC", "CCRURC")));
 
         // TSMC: circular array
 //        System.out.println(Result.circularArray(4, Arrays.asList(1, 5, 10, 5)));
@@ -29,6 +29,8 @@ public class Solution {
         // 3. Between Two Sets
 //        System.out.println(Result.getTotalX(Arrays.asList(2, 3, 6), Arrays.asList(42, 84)));
 
+        // CyberLink: Star Rating
+        System.out.println(Result.starRating("2.36"));
 
     }
 }
