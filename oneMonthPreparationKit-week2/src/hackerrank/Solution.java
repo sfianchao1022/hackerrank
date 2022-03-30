@@ -55,7 +55,13 @@ public class Solution {
 //        System.out.println(Result.maxMin(3, Arrays.asList(100, 200, 300, 350, 400, 401 ,402)));
 
         // 7. Sherlock and Array
-        System.out.println(Result.balancedSums(Arrays.asList(1, 2, 3)));
+//        System.out.println(Result.balancedSums(Arrays.asList(1, 2, 3)));
+
+        // 8. Recursive Digit Sum
+        System.out.println(Result.superDigit("9875", 4));
+
+        
+
 
     }
 }

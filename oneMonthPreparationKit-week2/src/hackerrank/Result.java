@@ -333,5 +333,36 @@ class Result {
         return ans;
     }
 
+    /*
+     * Complete the 'superDigit' function below.
+     *
+     * The function is expected to return an INTEGER.
+     * The function accepts following parameters:
+     *  1. STRING n
+     *  2. INTEGER k
+     */
+    public static int superDigit(String n, int k){
+
+        n = n.chars().mapToLong(Character::getNumericValue).sum() * k + "";
+
+        return (n.length() > 1) ? superDigit(n, 1) : Character.getNumericValue(n.charAt(0));
+    }
+//    public static int superDigit(String n, int k) {
+//        // Write your code here
+//
+//        String repeatedStr = n.repeat(k);
+//        while (repeatedStr.length() > 1) {
+//            int p = 0;
+//            for (int i = 0; i < repeatedStr.length(); i++) {
+////                Integer temp = Integer.parseInt(String.valueOf(repeatedStr.charAt(i)));
+//                int temp = Character.getNumericValue(repeatedStr.charAt(i));
+//                p += temp;
+//            }
+//            repeatedStr = String.valueOf(p);
+//        }
+//
+//        return Integer.parseInt(repeatedStr);
+//    }
+
 
 }
