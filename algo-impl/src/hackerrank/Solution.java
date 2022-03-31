@@ -30,7 +30,10 @@ public class Solution {
 //        System.out.println(Result.getTotalX(Arrays.asList(2, 3, 6), Arrays.asList(42, 84)));
 
         // CyberLink: Star Rating
-        System.out.println(Result.starRating("2.36"));
+//        System.out.println(Result.starRating("2.36"));
+
+        // CyberLink: FizzBuzz
+        System.out.println(Result.fizzBuzz(15));
 
     }
 }

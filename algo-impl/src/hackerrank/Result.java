@@ -191,6 +191,7 @@ class Result {
         return ans.size();
     }
 
+
     /**
      * CyberLink: star rating
      * @param str
@@ -220,5 +221,27 @@ class Result {
     }
 
 
+    /**
+     * CyberLink: FizzBuzz
+     * @param num
+     * @return
+     */
+    public static String fizzBuzz(int num){
+        StringBuilder ans = new StringBuilder();
+        for (int i = 1; i <= num; i++) {
+            if (i % 3 == 0 && i % 5 == 0) {
+                ans.append("FizzBuzz");
+            } else if (i % 5 == 0) {
+                ans.append("Buzz");
+            } else if (i % 3 == 0) {
+                ans.append("Fizz");
+            } else {
+                ans.append(String.valueOf(i));
+            }
+            ans.append(" ");
+        }
+
+        return ans.toString();
+    }
 
 }
