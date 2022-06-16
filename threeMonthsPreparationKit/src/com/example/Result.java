@@ -1,5 +1,6 @@
 package com.example;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
@@ -55,6 +56,53 @@ public class Result {
             }
         }
         return pairs;
+    }
+
+
+    /*
+     * Complete the 'marsExploration' function below.
+     *
+     * The function is expected to return an INTEGER.
+     * The function accepts STRING s as parameter.
+     */
+    public static int marsExploration(String s) {
+        // Write your code here
+        int i = 0;
+        int diff = 0;
+        String original = "SOS";
+        while (i <= s.length() - 2) {
+            String sub = s.substring(i, i + 3);
+            for (int j = 0; j < sub.length(); j++) {
+                if (!(sub.charAt(j) == original.charAt(j))) {
+                    diff++;
+                }
+            }
+            i += 3;
+        }
+
+        return diff;
+    }
+
+    /*
+     * Complete the 'gradingStudents' function below.
+     *
+     * The function is expected to return an INTEGER_ARRAY.
+     * The function accepts INTEGER_ARRAY grades as parameter.
+     */
+    public static List<Integer> gradingStudents(List<Integer> grades) {
+        // Write your code here
+        List<Integer> result = new ArrayList<>();
+        for (Integer grade : grades) {
+            Integer upper = 5 * ((grade / 5) + 1);
+            if (grade < 38) {
+                result.add(grade);
+            } else if (upper - grade < 3) {
+                result.add(upper);
+            } else {
+                result.add(grade);
+            }
+        }
+        return result;
     }
 
 }
