@@ -6,6 +6,38 @@ import java.util.stream.Collectors;
 class Result {
 
     /**
+     * TSMC: Grouping Transactions by items' Names
+     * @param transactions
+     * @return
+     */
+    public static List<String> groupTransactions(List<String> transactions) {
+
+        List<String> result = new ArrayList<>();
+        Map<String, Integer> map = new HashMap<>();
+        for (String string : transactions) {
+            map.put(string, map.getOrDefault(string, 0) + 1);
+        }
+
+        while (map.size() > 0) {
+            int max = Integer.MIN_VALUE;
+            String transaction = "";
+            for (String key : map.keySet()) {
+                if (map.get(key) > max) {
+                    transaction = key;
+                    max = map.get(key);
+                } else if (map.get(key) == max && key.charAt(0) < transaction.charAt(0)) {
+                    transaction = key;
+                    max = map.get(key);
+                }
+            }
+            map.remove(transaction);
+            result.add(transaction + " " + max);
+        }
+
+        return result;
+    }
+
+    /**
      * TSMC: Authentication Tokens
      * @param expiryLimit
      * @param commands

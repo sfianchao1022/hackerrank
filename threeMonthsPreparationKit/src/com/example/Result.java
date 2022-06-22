@@ -1,6 +1,7 @@
 package com.example;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class Result {
 
@@ -279,6 +280,163 @@ public class Result {
             System.out.println("NO");
         }
     }
+
+    /*
+     * Complete the 'closestNumbers' function below.
+     *
+     * The function is expected to return an INTEGER_ARRAY.
+     * The function accepts INTEGER_ARRAY arr as parameter.
+     */
+    public static List<Integer> closestNumbers(List<Integer> arr) {
+        // Write your code here
+        Collections.sort(arr);
+        List<Integer> list = new ArrayList<>();
+        Long min = 0l;
+        for (int i = 0; i < arr.size() - 1; i++) {
+            Long delta = Math.abs(Long.valueOf(arr.get(i)) - Long.valueOf(arr.get(i + 1)));
+            if (min == 0 || delta == min) {
+                min = delta;
+                list.addAll(Arrays.asList(arr.get(i), arr.get(i + 1)));
+            } else if (delta < min) {
+                list.clear();
+                min = delta;
+                list.addAll(Arrays.asList(arr.get(i), arr.get(i + 1)));
+            }
+        }
+        List<Integer> result = list.stream().sorted().collect(Collectors.toList());
+        return result;
+    }
+
+    /*
+     * Complete the 'minimumAbsoluteDifference' function below.
+     *
+     * The function is expected to return an INTEGER.
+     * The function accepts INTEGER_ARRAY arr as parameter.
+     */
+    public static int minimumAbsoluteDifference(List<Integer> arr) {
+        // Write your code here
+        Collections.sort(arr);
+        int min = Integer.MAX_VALUE;
+        for (int i = 0; i < arr.size() - 1; i++) {
+            Long delta = Math.abs(Long.valueOf(arr.get(i)) - Long.valueOf(arr.get(i + 1)));
+            if (delta < min) {
+                min = delta.intValue();
+            }
+        }
+        return min;
+    }
+
+
+    /*
+     * Complete the 'minimumNumber' function below.
+     *
+     * The function is expected to return an INTEGER.
+     * The function accepts following parameters:
+     *  1. INTEGER n
+     *  2. STRING password
+     */
+
+    public static int minimumNumber(int n, String password) {
+        // Return the minimum number of characters to make the password strong
+        List<String> num = Arrays.asList("0123456789".split(""));
+        List<String> lower = Arrays.asList("abcdefghijklmnopqrstuvwxyz".split(""));
+        List<String> upper = Arrays.asList("ABCDEFGHIJKLMNOP[QRSTUVWXYZ".split(""));
+        List<String> special = Arrays.asList("!@#$%^&*()-+".split(""));
+
+        Map<String, Integer> map = new HashMap<>();
+        for (int i = 0; i < n; i++) {
+            String str = String.valueOf(password.charAt(i));
+            if (num.contains(str)) {
+                map.put("num", map.getOrDefault("num", 0) + 1);
+            } else if (lower.contains(str)) {
+                map.put("lower", map.getOrDefault("lower", 0) + 1);
+            } else if (upper.contains(str)) {
+                map.put("upper", map.getOrDefault("upper", 0) + 1);
+            } else if (special.contains(str)) {
+                map.put("special", map.getOrDefault("special", 0) + 1);
+            }
+        }
+
+        if ((6 - n) <= 4 - map.size()) {
+            return 4 - map.size();
+        } else {
+            return 6 - n;
+        }
+    }
+
+
+    /*
+     * Complete the 'missingNumbers' function below.
+     *
+     * The function is expected to return an INTEGER_ARRAY.
+     * The function accepts following parameters:
+     *  1. INTEGER_ARRAY arr
+     *  2. INTEGER_ARRAY brr
+     */
+
+    public static List<Integer> missingNumbers(List<Integer> arr, List<Integer> brr) {
+        // Write your code here
+        Map<Integer, Integer> mapA = new HashMap<>();
+        Map<Integer, Integer> mapB = new HashMap<>();
+        List<Integer> result = new ArrayList<>();
+
+        for (Integer a : arr) {
+            mapA.put(a, mapA.getOrDefault(a, 0) + 1);
+        }
+        for (Integer b : brr) {
+            mapB.put(b, mapB.getOrDefault(b, 0) + 1);
+        }
+
+        for (Integer key : mapB.keySet()) {
+            if (!mapA.containsKey(key)) {
+                result.add(key);
+            } else if (mapA.containsKey(key) && !mapA.get(key).equals(mapB.get(key))) {
+                result.add(key);
+            }
+        }
+        return result;
+    }
+
+    /*
+     * Complete the 'countSort' function below.
+     *
+     * The function accepts 2D_STRING_ARRAY arr as parameter.
+     */
+
+    public static void countSort(List<List<String>> arr) {
+        // Write your code here
+        ArrayList<String>[] list = new ArrayList[100];
+
+        for (int i = 0; i < arr.size(); i++) {
+            int index = Integer.parseInt(arr.get(i).get(0));
+            if (i < arr.size() / 2) {
+                if (list[index] != null) {
+                    list[index].add("-");
+                } else {
+                    list[index] = new ArrayList<>();
+                    list[index].add("-");
+                }
+            } else {
+                if (list[index] != null) {
+                    list[index].add(arr.get(i).get(1));
+                } else {
+                    list[index] = new ArrayList<>();
+                    list[index].add(arr.get(i).get(1));
+                }
+            }
+        }
+        String ans = "";
+        for (int i = 0; i < list.length; i++) {
+            if (list[i] != null) {
+                List<String> sub = list[i];
+                for (String str : sub) {
+                    ans += str + " ";
+                }
+            }
+        }
+        System.out.println(ans);
+    }
+
 
 
 }

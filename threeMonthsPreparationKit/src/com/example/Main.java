@@ -3,6 +3,7 @@ package com.example;
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class Main {
 
@@ -46,6 +47,23 @@ public class Main {
 //        System.out.println(Result.kangaroo(0, 2, 5, 3));
 
         // 10. Separate the Numbers
-        Result.separateNumbers("91011");
+//        Result.separateNumbers("91011");
+
+        // 11. Closest Numbers
+//        System.out.println(Result.closestNumbers(Arrays.asList(-5, 15, 25, 71, 63)));
+
+        // 12. Minimum Absolute Difference in an Array
+//        System.out.println(Result.minimumAbsoluteDifference(Arrays.asList(3, -7, 0)));
+
+        // 13. Strong Password
+//        System.out.println(Result.minimumNumber(11, "#HackerRank"));
+
+        // 14. Missing Numbers
+        System.out.println(Result.missingNumbers(Arrays.asList(203, 204, 205, 206, 207, 208, 203, 204, 205, 206),
+                Arrays.asList(203, 204, 204, 205, 206, 207, 205, 208, 203, 206, 205, 206, 204)));
+
+        // 15. The Full Counting Sort
+
+
     }
 }

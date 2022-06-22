@@ -1,11 +1,18 @@
 package hackerrank;
 
+import java.lang.reflect.Array;
 import java.util.*;
 
 public class Solution {
 
     public static void main(String[] args) {
 	// write your code here
+
+        // TSMC: Grouping Transactions by items' Names
+        System.out.println(Result.groupTransactions(Arrays.asList("bin", "bin", "can", "bin")));
+        System.out.println(Result.groupTransactions(Arrays.asList("banana", "pear", "apple")));
+
+        // TSMC:
 
         // TSMC: Authentication Tokens
 //        List<List<Integer>> lists = new ArrayList<>();
@@ -58,10 +65,7 @@ public class Solution {
 //        System.out.println(Result.balancedSums(Arrays.asList(1, 2, 3)));
 
         // 8. Recursive Digit Sum
-        System.out.println(Result.superDigit("9875", 4));
-
-        
-
+//        System.out.println(Result.superDigit("9875", 4));
 
     }
 }
