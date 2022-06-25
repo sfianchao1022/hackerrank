@@ -38,6 +38,32 @@ class Result {
     }
 
     /**
+     * TSMC: Vowels
+     * @param strArr
+     * @param queries
+     * @return
+     */
+    public static List<Integer> hasVowels(List<String> strArr, List<String> queries) {
+        List<Character> vowels = Arrays.asList('a', 'e', 'i', 'o', 'u');
+        List<Integer> ans = new ArrayList<>();
+        for (String query : queries) {
+            int from = Integer.parseInt(String.valueOf(query.charAt(0))) - 1;
+            int to = Integer.parseInt(String.valueOf(query.charAt(2))) - 1;
+            int count = 0;
+            for (int i = from; i <= to; i++) {
+                String str = strArr.get(i);
+                char first = str.charAt(0);
+                char last = str.charAt(str.length() - 1);
+                if (vowels.contains(first) && vowels.contains(last)) {
+                    count++;
+                }
+            }
+            ans.add(count);
+        }
+        return ans;
+    }
+
+    /**
      * TSMC: Authentication Tokens
      * @param expiryLimit
      * @param commands

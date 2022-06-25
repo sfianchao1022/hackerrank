@@ -9,10 +9,15 @@ public class Solution {
 	// write your code here
 
         // TSMC: Grouping Transactions by items' Names
-        System.out.println(Result.groupTransactions(Arrays.asList("bin", "bin", "can", "bin")));
-        System.out.println(Result.groupTransactions(Arrays.asList("banana", "pear", "apple")));
+//        System.out.println(Result.groupTransactions(Arrays.asList("bin", "bin", "can", "bin")));
+//        System.out.println(Result.groupTransactions(Arrays.asList("banana", "pear", "apple")));
 
-        // TSMC:
+        // TSMC: Vowels
+//        List<String> strArr = Arrays.asList("aba", "bcb", "ece", "aa", "e");
+        List<String> strArr = Arrays.asList("yy", "u", "oe");
+//        List<String> queries = Arrays.asList("1-3", "2-5", "2-2");
+        List<String> queries = Arrays.asList("1-2", "2-3");
+        System.out.println(Result.hasVowels(strArr, queries));
 
         // TSMC: Authentication Tokens
 //        List<List<Integer>> lists = new ArrayList<>();

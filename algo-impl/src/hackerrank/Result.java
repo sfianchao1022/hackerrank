@@ -5,27 +5,121 @@ import java.util.stream.Collectors;
 
 class Result {
 
-    /*
-     * Complete the 'gradingStudents' function below.
-     *
-     * The function is expected to return an INTEGER_ARRAY.
-     * The function accepts INTEGER_ARRAY grades as parameter.
+    /**
+     * TSMC: Longest Even Length Word
+     * @param sentence
+     * @return
      */
-    public static List<Integer> gradingStudents(List<Integer> grades) {
-        // Write your code here
-        List<Integer> list = new ArrayList<>();
-        for (Integer grade : grades) {
-            int multiple = grade / 5 + 1;
-            int score = 5 * multiple;
-            if (score >= 40 && score - grade < 3) {
-                list.add(score);
+    public static String longestEvenWord(String sentence) {
+        String ans = "";
+        int i = 0;
+        while (i < sentence.length()) {
+            String sub;
+            if (!sentence.contains(" ")) {
+                sub = sentence;
+                sentence = "";
             } else {
-                list.add(grade);
+                sub = sentence.substring(i ,sentence.indexOf(" "));
+                sentence = sentence.substring(sentence.indexOf(" ") + 1);
+            }
+
+            if (sub.length() % 2 == 0 && sub.length() > ans.length()) {
+                ans = sub;
             }
         }
-        return list;
+
+        return ans;
     }
 
+    /**
+     * TSMC: Process Tree
+     * @param processNumber
+     * @return
+     */
+    public static int findParent(int processNumber) {
+        int parent = 0, sum = 1;
+        int i = 1;
+        while (sum <= processNumber) {
+            sum += i;
+            parent++;
+            i++;
+        }
+        return parent;
+    }
+
+
+    /**
+     * TSMC: Stars and Bars
+     * @param s
+     * @param startIndex
+     * @param endIndex
+     * @return
+     */
+    public static List<Integer> starsAndBars(String s, List<Integer> startIndex, List<Integer> endIndex) {
+        List<Integer> ans = new ArrayList<>();
+        for (int i = 0; i < startIndex.size(); i++) {
+            int from = startIndex.get(i);
+            int to = endIndex.get(i);
+            String subStr = s.substring(from - 1, to);
+            int bar = 0;
+            for (int j = 0; j < subStr.length(); j++) {
+                if (subStr.charAt(j) == '|') {
+                    bar++;
+                }
+            }
+            int start = subStr.indexOf('|');
+            int end = subStr.lastIndexOf('|');
+            if (start == 0 && end == 0) {
+                ans.add(0);
+            } else {
+                int star = end - start - 1 - (bar - 2);
+                ans.add(star);
+            }
+        }
+        return ans;
+    }
+
+
+    /**
+     * TSMC: Divided Matrix
+     * @param arr
+     * @return
+     */
+    public static List<Integer> divided(List<List<Integer>> arr) {
+        int n = arr.size();
+        Map<Integer, Integer> l1 = new HashMap<>();
+        Map<Integer, Integer> l2 = new HashMap<>();
+        int p1 = 0;
+        int p2 = 0;
+        int p3 = 0;
+        int p4 = 0;
+
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                if (i == j) {
+                    l1.put(i, j);
+                } else if (i == arr.get(i).size() - 1 - j) {
+                    l2.put(i ,j);
+                }
+            }
+        }
+
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                if (j < n / 2 && j < l1.get(i) && j < l2.get(i)) {
+                    p1 += arr.get(i).get(j);
+                } else if (i < n / 2 && j > l1.get(i) && j < l2.get(i)) {
+                    p2 += arr.get(i).get(j);
+                } else if (j > n / 2 && j > l1.get(i) && j > l2.get(i)) {
+                    p3 += arr.get(i).get(j);
+                } else if (i > n / 2 && j < l1.get(i) && j > l2.get(i)) {
+                    p4 += arr.get(i).get(j);
+                }
+            }
+        }
+
+        return List.of(p1, p2, p3, p4);
+    }
 
     /**
      * rover control
@@ -126,6 +220,87 @@ class Result {
     }
 
 
+    /**
+     * TSMC: Line Game
+     * @param lines
+     * @return
+     */
+    public static List<Integer> lineGame(List<List<Integer>> lines) {
+        int border = Integer.MIN_VALUE;
+
+        for (int i = 0; i < lines.size(); i++) {
+            for (int j = 0; j < lines.get(i).size(); j++) {
+                if (lines.get(i).get(j) > border) {
+                    border = lines.get(i).get(j);
+                }
+            }
+        }
+
+        int min = Integer.MAX_VALUE;
+        List<Integer> ans = new ArrayList<>(2);
+        for (int i = 0; i <= border; i++) {
+            for (int j = 0; j <= border; j++) {
+                int sum = 0;
+                for (List<Integer> line : lines) {
+                    int delta = 0;
+                    int d1, d2;
+                    if (line.get(0) == line.get(2)) {
+                        // vertical line
+                        if (j >= line.get(1) && j <= line.get(3)) {
+                            delta = Math.abs(i - line.get(0));
+                        } else {
+                            d1 = Math.abs(i - line.get(0)) + Math.abs(j - line.get(1));
+                            d2 = Math.abs(i - line.get(2)) + Math.abs(i - line.get(3));
+                            delta = Math.min(d1, d2);
+                        }
+                    } else if (line.get(1) == line.get(3)) {
+                        // horizontal line
+                        if (i >= line.get(0) && i <= line.get(2)) {
+                            delta = Math.abs(j - line.get(1));
+                        } else {
+                            d1 = Math.abs(i - line.get(0)) + Math.abs(j - line.get(1));
+                            d2 = Math.abs(i - line.get(2)) + Math.abs(i - line.get(3));
+                            delta = Math.min(d1, d2);
+                        }
+                    }
+                    sum += delta;
+                }
+
+                if (sum < min) {
+                    min = sum;
+                    ans = List.of(i, j);
+                } else if (sum == min && (i < ans.get(0) || j < ans.get(1))) {
+                    ans = List.of(i, j);
+                }
+            }
+        }
+
+        return ans;
+    }
+
+
+    /*
+     * Complete the 'gradingStudents' function below.
+     *
+     * The function is expected to return an INTEGER_ARRAY.
+     * The function accepts INTEGER_ARRAY grades as parameter.
+     */
+    public static List<Integer> gradingStudents(List<Integer> grades) {
+        // Write your code here
+        List<Integer> list = new ArrayList<>();
+        for (Integer grade : grades) {
+            int multiple = grade / 5 + 1;
+            int score = 5 * multiple;
+            if (score >= 40 && score - grade < 3) {
+                list.add(score);
+            } else {
+                list.add(grade);
+            }
+        }
+        return list;
+    }
+
+
     /*
      * Complete the 'hurdleRace' function below.
      *
@@ -192,6 +367,64 @@ class Result {
     }
 
 
+    /*
+     * Complete the 'birthdayCakeCandles' function below.
+     *
+     * The function is expected to return an INTEGER.
+     * The function accepts INTEGER_ARRAY candles as parameter.
+     */
+
+    public static int birthdayCakeCandles(List<Integer> candles) {
+        // Write your code here
+        Map<Integer, Integer> map = new HashMap<>();
+        for (Integer candle : candles) {
+            map.put(candle, map.getOrDefault(candle, 0) + 1);
+        }
+
+        Optional<Integer> max = map.keySet().stream().max(Comparator.comparing(Integer::intValue));
+        if (max.isPresent()) {
+            return map.get(max.get());
+        } else {
+            return 0 ;
+        }
+    }
+
+
+    /*
+     * Complete the 'countApplesAndOranges' function below.
+     *
+     * The function accepts following parameters:
+     *  1. INTEGER s
+     *  2. INTEGER t
+     *  3. INTEGER a
+     *  4. INTEGER b
+     *  5. INTEGER_ARRAY apples
+     *  6. INTEGER_ARRAY oranges
+     */
+
+    public static void countApplesAndOranges(int s, int t, int a, int b, List<Integer> apples, List<Integer> oranges) {
+        // Write your code here
+        int apple = 0;
+        int orange = 0;
+        for (Integer i : apples) {
+            int location = a + i;
+            if (location >= s && location <= t) {
+                apple++;
+            }
+        }
+
+        for (Integer i : oranges) {
+            int location = b + i;
+            if (location >= s && location <= t) {
+                orange++;
+            }
+        }
+        System.out.println(apple);
+        System.out.println(orange);
+    }
+
+
+
     /**
      * CyberLink: star rating
      * @param str
@@ -236,7 +469,7 @@ class Result {
             } else if (i % 3 == 0) {
                 ans.append("Fizz");
             } else {
-                ans.append(String.valueOf(i));
+                ans.append(i);
             }
             ans.append(" ");
         }
