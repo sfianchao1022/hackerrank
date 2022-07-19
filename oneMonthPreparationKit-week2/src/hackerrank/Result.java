@@ -423,4 +423,91 @@ class Result {
 //    }
 
 
+    /*
+     * Complete the 'counterGame' function below.
+     *
+     * The function is expected to return a STRING.
+     * The function accepts LONG_INTEGER n as parameter.
+     */
+
+    public static String counterGame(long n) {
+        // Write your code here
+        int turn = 0;
+        while (n >= 1) {
+            if (n == 1) {
+                break;
+            }
+
+            n = find(n);
+            turn++;
+        }
+
+        if (turn % 2 == 0) {
+            return "Richard";
+        } else {
+            return "Louise";
+        }
+    }
+
+    private static long find(long n) {
+        long ans = 0l;
+        for (int i = 0; i < 64; i++) {
+            if (isPow(n)) {
+                ans = n / 2;
+                break;
+            } else if (Math.pow(2, i) > n) {
+                ans = Double.valueOf(Math.pow(2, i - 1)).longValue() / 2;
+                break;
+            }
+        }
+        return ans;
+    }
+
+    private static boolean isPow(long n) {
+
+        if (n == 1) {
+            return true;
+        } else if (n % 2 != 0) {
+            return false;
+        } else {
+            return isPow(n / 2);
+        }
+    }
+
+
+    /*
+     * Complete the 'sumXor' function below.
+     *
+     * The function is expected to return a LONG_INTEGER.
+     * The function accepts LONG_INTEGER n as parameter.
+     */
+    public static long sumXor(long n) {
+        // Write your code here
+        if (n == 0l) {
+            return 1;
+        }
+
+        int num = 0;
+        String binary = Long.toBinaryString(n);
+        for (int i = binary.length() - 1; i >= binary.indexOf('1'); i--) {
+            char bit = binary.charAt(i);
+            if (bit == '0') {
+                num++;
+            }
+        }
+        return (long) Math.pow(2, num);
+    }
+//    public static long sumXor(long n) {
+//        // Write your code here --> wrong answer
+//        long num = 0l;
+//        for (long i = 0l; i <= n; i++) {
+//            long sum = n + i;
+//            long xor = n ^ i;
+//            if (sum == xor) {
+//                num++;
+//            }
+//        }
+//        return num;
+//    }
+
 }

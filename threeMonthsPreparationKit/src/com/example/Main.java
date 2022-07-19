@@ -11,7 +11,7 @@ public class Main {
 	// write your code here
 
         // Trend Micro: Pairs Sums
-//        System.out.println(Result.pairsSums(new int[]{5, 5, 5, 5, 5, 5}));
+        System.out.println(Result.pairsSums(new int[]{5, 5, 5, 5, 5, 5}));
 
         // Trend Micro: Pothole fixing
         System.out.println();
@@ -59,11 +59,10 @@ public class Main {
 //        System.out.println(Result.minimumNumber(11, "#HackerRank"));
 
         // 14. Missing Numbers
-        System.out.println(Result.missingNumbers(Arrays.asList(203, 204, 205, 206, 207, 208, 203, 204, 205, 206),
-                Arrays.asList(203, 204, 204, 205, 206, 207, 205, 208, 203, 206, 205, 206, 204)));
+//        System.out.println(Result.missingNumbers(Arrays.asList(203, 204, 205, 206, 207, 208, 203, 204, 205, 206),
+//                Arrays.asList(203, 204, 204, 205, 206, 207, 205, 208, 203, 206, 205, 206, 204)));
 
         // 15. The Full Counting Sort
-
 
     }
 }

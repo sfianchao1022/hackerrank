@@ -14,10 +14,10 @@ public class Solution {
 
         // TSMC: Vowels
 //        List<String> strArr = Arrays.asList("aba", "bcb", "ece", "aa", "e");
-        List<String> strArr = Arrays.asList("yy", "u", "oe");
+//        List<String> strArr = Arrays.asList("yy", "u", "oe");
 //        List<String> queries = Arrays.asList("1-3", "2-5", "2-2");
-        List<String> queries = Arrays.asList("1-2", "2-3");
-        System.out.println(Result.hasVowels(strArr, queries));
+//        List<String> queries = Arrays.asList("1-2", "2-3");
+//        System.out.println(Result.hasVowels(strArr, queries));
 
         // TSMC: Authentication Tokens
 //        List<List<Integer>> lists = new ArrayList<>();
@@ -71,6 +71,12 @@ public class Solution {
 
         // 8. Recursive Digit Sum
 //        System.out.println(Result.superDigit("9875", 4));
+
+        // 9. Counter game
+//        System.out.println(Result.counterGame(8));
+
+        // 10. Sum vs XOR
+        System.out.println(Result.sumXor(100));
 
     }
 }
