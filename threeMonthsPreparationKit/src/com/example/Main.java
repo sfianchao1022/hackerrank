@@ -11,13 +11,10 @@ public class Main {
 	// write your code here
 
         // Trend Micro: Pairs Sums
-        System.out.println(Result.pairsSums(new int[]{5, 5, 5, 5, 5, 5}));
-
-        // Trend Micro: Pothole fixing
-        System.out.println();
+//        System.out.println(Result.pairsSums(new int[]{5, 5, 5, 5, 5, 5}));
 
         // Trend Micro: Seat Reservation
-        System.out.println();
+        System.out.println(Result.seatReservation(2, "1A 2F 1C"));
 
         // 1. Breaking the Records
 //        System.out.println(Result.breakingRecords(Arrays.asList(12, 24, 10, 24)));

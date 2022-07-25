@@ -1,6 +1,7 @@
 package com.example;
 
 import java.util.*;
+import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Collectors;
 
 public class Result {
@@ -34,6 +35,63 @@ public class Result {
         return count;
     }
 
+
+    /**
+     * Trend Micro: Seat Reservation
+     * @param N
+     * @param S
+     * @return
+     */
+    public static int seatReservation(int N, String S) {
+        
+        List<String> list = List.of(S.split(" "));
+
+        Map<Integer, Map<String, Integer>> map = new HashMap<>();
+        for (int i = 1; i <= N; i++) {
+            Map<String, Integer> seat = new HashMap<>();
+            seat.put("A", 0);
+            seat.put("B", 0);
+            seat.put("C", 0);
+            seat.put("D", 0);
+            seat.put("E", 0);
+            seat.put("F", 0);
+            seat.put("G", 0);
+            seat.put("H", 0);
+            seat.put("I", 0);
+            seat.put("J", 0);
+            map.put(i, seat);
+        }
+
+        for (int i = 0; i < list.size(); i++) {
+            String str = list.get(i);
+            char row = str.charAt(0);
+            char col = str.charAt(1);
+            Map<String, Integer> seat = map.get(Character.getNumericValue(row));
+            seat.put(String.valueOf(col), 1);
+        }
+
+        map.forEach((k, v) -> System.out.println("k:" + k + " v:" + v));
+
+        int ans = 0;
+        for (Integer n : map.keySet()) {
+            Map<String, Integer> seat = map.get(n);
+            int sum = 0;
+            if (seat.get("B").equals(0) && seat.get("C").equals(0) && seat.get("D").equals(0) && seat.get("E").equals(0)) {
+                sum++;
+            }
+            if (seat.get("F").equals(0) && seat.get("G").equals(0) && seat.get("H").equals(0) && seat.get("J").equals(0)) {
+                sum++;
+            }
+            if (sum == 0 && seat.get("D").equals(0) && seat.get("E").equals(0) && seat.get("F").equals(0) && seat.get("G").equals(0)) {
+                sum++;
+            }
+            ans += sum;
+        }
+
+        return ans;
+    }
+
+
     /*
      * Complete the 'breakingRecords' function below.
      *
@@ -62,6 +120,7 @@ public class Result {
 
         return Arrays.asList(max, min);
     }
+
 
     /*
      * Complete the 'divisibleSumPairs' function below.
@@ -110,6 +169,7 @@ public class Result {
         return diff;
     }
 
+
     /*
      * Complete the 'gradingStudents' function below.
      *
@@ -131,6 +191,7 @@ public class Result {
         }
         return result;
     }
+
 
     /*
      * Complete the 'migratoryBirds' function below.
@@ -161,6 +222,7 @@ public class Result {
         return type;
     }
 
+
     /*
      * Complete the 'birthday' function below.
      *
@@ -187,6 +249,7 @@ public class Result {
         return count;
     }
 
+
     /*
      * Complete the 'pickingNumbers' function below.
      *
@@ -210,6 +273,7 @@ public class Result {
 
     }
 
+
     /*
      * Complete the 'rotateLeft' function below.
      *
@@ -228,6 +292,7 @@ public class Result {
 
         return arr;
     }
+
 
     /*
      * Complete the 'kangaroo' function below.
@@ -251,6 +316,7 @@ public class Result {
         }
         return "NO";
     }
+
 
     /*
      * Complete the 'separateNumbers' function below.
@@ -281,6 +347,7 @@ public class Result {
         }
     }
 
+
     /*
      * Complete the 'closestNumbers' function below.
      *
@@ -306,6 +373,7 @@ public class Result {
         List<Integer> result = list.stream().sorted().collect(Collectors.toList());
         return result;
     }
+
 
     /*
      * Complete the 'minimumAbsoluteDifference' function below.
@@ -436,7 +504,6 @@ public class Result {
         }
         System.out.println(ans);
     }
-
 
 
 }
